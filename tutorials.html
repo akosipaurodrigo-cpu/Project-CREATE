@@ -8,6 +8,25 @@
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:20px}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;background:radial-gradient(circle at 8% 8%,#fff2f8 0,transparent 26rem),radial-gradient(circle at 95% 25%,#e9f8ff 0,transparent 30rem),var(--paper);color:var(--ink);line-height:1.7}
 header{position:relative;overflow:hidden;background:linear-gradient(135deg,#28234d 0%,#5546a8 60%,#7767d8 100%);color:white;padding:42px 20px 34px;border-radius:0 0 32px 32px}header:after{content:"✦  ✧  ✦";position:absolute;right:4%;top:18px;font-size:2.5rem;color:#ffffff35;letter-spacing:16px;transform:rotate(-10deg)}header .wrap,main,.foot{max-width:1100px;margin:auto}header a{color:white}.tag{color:#ffe39b;text-transform:uppercase;letter-spacing:2px;font-size:.78rem;font-weight:850}.hero-badge{display:inline-flex;align-items:center;gap:7px;background:#ffffff20;border:1px solid #ffffff36;border-radius:99px;padding:5px 12px;font-size:.83rem}h1{line-height:1.08;margin:.65rem 0;font-size:clamp(2.2rem,5vw,4rem);letter-spacing:-1.6px;max-width:850px}header p{max-width:760px;color:#f0edff;font-size:1.04rem}.nav{display:flex;gap:9px;flex-wrap:wrap;margin-top:22px}.nav a{background:#ffffff17;border:1px solid #ffffff35;padding:8px 13px;border-radius:99px;text-decoration:none;font-size:.92rem;transition:.2s}.nav a:hover{background:#fff;color:#30265f;transform:translateY(-2px)}
 main{padding:25px 16px 60px}.intro,.lesson,.notice{background:#ffffffed;border:1px solid var(--line);border-radius:23px;padding:clamp(18px,3vw,30px);margin:20px 0;box-shadow:0 10px 30px #3b28690b}.intro h2,.lesson h2{color:var(--navy);margin-top:5px;letter-spacing:-.6px}.lesson h2{font-size:clamp(1.45rem,3vw,2rem);border:0;padding:0;margin-bottom:10px}.lesson h3{margin:22px 0 6px;color:#5145b4;font-size:1.08rem}.meta{font-size:.9rem;color:var(--muted);background:#f5f2ff;border-radius:12px;padding:10px 13px}.steps{list-style:none;counter-reset:lessonstep;padding:0;display:grid;gap:9px}.steps li{counter-increment:lessonstep;position:relative;margin:0;padding:12px 14px 12px 52px;border:1px solid #e9e5f7;background:linear-gradient(110deg,#fff,#fbfaff);border-radius:14px;min-height:52px}.steps li:before{content:counter(lessonstep);position:absolute;left:13px;top:11px;width:27px;height:27px;display:grid;place-items:center;background:#e6e0ff;color:#4e43b1;border-radius:9px;font-weight:850}.callout{background:#edf9ff;border:1px solid #d3f0ff;border-left:5px solid #60c6ee;padding:14px 16px;margin:16px 0;border-radius:15px}.activity{background:linear-gradient(120deg,#fff6df,#fff0f7);border:1px solid #ffe4a8;border-left:5px solid var(--gold);padding:16px;margin:16px 0;border-radius:16px}.pill{display:inline-flex;align-items:center;background:#e9e4ff;color:#4b3eaa;padding:5px 11px;border-radius:99px;font-size:.76rem;font-weight:850;letter-spacing:.4px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:13px}.grid a{display:block;padding:17px;border:1px solid var(--line);border-radius:17px;text-decoration:none;color:var(--navy);background:linear-gradient(145deg,#fff,#faf8ff);transition:transform .2s,box-shadow .2s,border-color .2s}.grid a:hover{border-color:#aaa0ef;transform:translateY(-3px);box-shadow:0 9px 22px #4332a316}.grid a strong{display:inline-block;margin-bottom:4px}.lesson{scroll-margin-top:20px;position:relative;overflow:hidden}.lesson:before{content:"";position:absolute;top:0;left:0;width:100%;height:5px;background:linear-gradient(90deg,var(--blue),var(--pink),var(--gold),#63d9bb)}.lesson .activity strong{color:#81591b}button{background:var(--blue);color:white;border:0;border-radius:12px;padding:11px 16px;cursor:pointer;font-size:.95rem;font-weight:750;box-shadow:0 4px 0 #3f3798;transition:transform .15s,box-shadow .15s}button:hover{transform:translateY(-2px);box-shadow:0 6px 0 #3f3798}button:active{transform:translateY(2px);box-shadow:0 1px 0 #3f3798}label{display:block;padding:7px 0}input,select,textarea{font:inherit;max-width:100%}input[type=radio]{accent-color:var(--blue)}.small{font-size:.9rem;color:var(--muted)}footer{background:#28234d;color:#e7e3ff;padding:25px;text-align:center;margin-top:30px}.progress-shell{position:sticky;top:0;z-index:20;background:#fffef2ed;border-bottom:1px solid #eee3b6;padding:10px 16px;backdrop-filter:blur(12px)}.progress-inner{max-width:1100px;margin:auto;display:flex;align-items:center;gap:12px;font-size:.88rem;font-weight:750;color:#37305e}.progress-track{height:9px;flex:1;background:#e8e2f5;border-radius:99px;overflow:hidden}.progress-fill{height:100%;width:0;background:linear-gradient(90deg,#6558dc,#ff7eb6,#ffca66);border-radius:99px;transition:width .35s}.lesson-top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;flex-wrap:wrap}.complete-btn{background:#e9e4ff;color:#43389e;box-shadow:none;border:1px solid #d9d1ff}.complete-btn:hover{box-shadow:none;background:#dcd5ff}.complete-btn.done{background:#d9fae9;color:#146c4c;border-color:#a5eacb}.start-chip{display:inline-flex;gap:6px;align-items:center;color:#4c43a9;font-weight:800;font-size:.9rem}.intro .grid a:nth-child(6n+1){background:linear-gradient(145deg,#fff,#fff0f7)}.intro .grid a:nth-child(6n+2){background:linear-gradient(145deg,#fff,#fff8e6)}.intro .grid a:nth-child(6n+3){background:linear-gradient(145deg,#fff,#edf8ff)}.intro .grid a:nth-child(6n+4){background:linear-gradient(145deg,#fff,#edfff7)}.intro .grid a:nth-child(6n+5){background:linear-gradient(145deg,#fff,#f2efff)}.intro .grid a:nth-child(6n){background:linear-gradient(145deg,#fff,#fff0f7)}.q{padding:14px 0}.q label{padding-left:10px;border-radius:9px}.q label:hover{background:#f5f2ff}.workspace-panel{background:#f9f7ff;border:1px dashed #bcb1f3;border-radius:17px;padding:16px}.lesson details{border:1px solid var(--line);border-radius:13px;padding:12px 15px;margin:10px 0;background:#fcfbff}.lesson summary{cursor:pointer;font-weight:800;color:#443a9b}.lesson summary::marker{color:#ff7eb6}@media(max-width:600px){header{padding:30px 17px 25px;border-radius:0 0 23px 23px}.nav{gap:7px}.nav a{font-size:.84rem;padding:7px 10px}.progress-inner{gap:8px}.progress-label{max-width:110px}.steps li{padding-left:48px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}@media print{header,.nav,button,.progress-shell{display:none}body{background:white}.lesson,.intro{box-shadow:none;break-inside:avoid}}
+
+/* Lesson-by-lesson interactive learning mode */
+.lesson.lesson-hidden{display:none}
+.lesson-switcher{max-width:1100px;margin:14px auto 0;padding:0 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.lesson-switcher .switch-controls{display:flex;gap:8px;flex-wrap:wrap}
+.lesson-switcher button,.lesson .mini-check button{box-shadow:none}
+.lesson-switcher .secondary{background:#fff;color:#453a9d;border:1px solid #dcd5f5}
+.lesson .lesson-practice{margin:18px 0;padding:17px;border:1px solid #dcd5ff;border-radius:16px;background:linear-gradient(135deg,#f5f2ff,#effbff)}
+.lesson-practice label{font-weight:750}
+.lesson-practice textarea{width:100%;min-height:88px;padding:12px;border:1px solid #d9d3ef;border-radius:10px;background:#fff}
+.lesson-practice .practice-feedback{font-weight:750;color:#23694d;min-height:1.5em}
+.lesson-practice .practice-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+.lesson-practice .practice-actions button{margin:0}
+.lesson-practice .save-note{font-size:.82rem;color:var(--muted)}
+.lesson.lesson-current{outline:2px solid #cfc6ff;outline-offset:2px}
+.lesson .complete-btn.done{background:#d9fae9}
+.lesson-index-active{outline:2px solid #8c7df0!important}
+@media(max-width:600px){.lesson-switcher{padding:0 12px}.lesson-switcher button{padding:9px 11px}}
+
 </style>
 </head>
 <body>
@@ -126,6 +145,72 @@ const progressFill=document.getElementById('progressFill');
 const progressLabel=document.getElementById('progressLabel');
 function updateLessonProgress(){let done=0;lessonIds.forEach(id=>{const b=document.querySelector('[data-complete="'+id+'"]');if(b&&b.classList.contains('done'))done++;});progressFill.style.width=(done/lessonIds.length*100)+'%';progressLabel.textContent=done+' / '+lessonIds.length+' lessons';}
 document.querySelectorAll('[data-complete]').forEach(b=>b.addEventListener('click',()=>{b.classList.toggle('done');const done=b.classList.contains('done');b.textContent=done?'✓ Completed!':'○ Mark complete';updateLessonProgress();}));
+
+
+/* Interactive one-lesson-at-a-time mode with locally saved practice notes */
+(function(){
+ const ids=['image','visual','webdesign','cloud','present','team'];
+ const names=['Image manipulation','Visual design & infographics','Web design','Cloud & file management','Presentations & visualization','Collaborative ICT'];
+ const lessons=ids.map(id=>document.getElementById(id)).filter(Boolean);
+ if(!lessons.length)return;
+ const switcher=document.createElement('div');switcher.className='lesson-switcher';
+ switcher.innerHTML='<strong id="lessonModeLabel">Lesson 1 of 6</strong><div class="switch-controls"><button type="button" class="secondary" id="prevLesson">← Previous</button><button type="button" id="nextLesson">Next lesson →</button><button type="button" class="secondary" id="showAllLessons">Show all</button></div>';
+ const main=document.querySelector('main');main.insertBefore(switcher,main.firstChild);
+ let current=0;
+ function showLesson(index,scroll=true){
+  current=Math.max(0,Math.min(lessons.length-1,index));
+  lessons.forEach((el,i)=>{el.classList.toggle('lesson-hidden',i!==current);el.classList.toggle('lesson-current',i===current);});
+  document.getElementById('lessonModeLabel').textContent='Lesson '+(current+1)+' of '+lessons.length+' · '+names[current];
+  document.getElementById('prevLesson').disabled=current===0;
+  document.getElementById('nextLesson').textContent=current===lessons.length-1?'Finish lessons ✓':'Next lesson →';
+  document.getElementById('nextLesson').disabled=false;
+  if(scroll)lessons[current].scrollIntoView({behavior:'smooth',block:'start'});
+  document.querySelectorAll('.intro .grid a').forEach((a,i)=>a.classList.toggle('lesson-index-active',i===current));
+  try{localStorage.setItem('create-current-lesson',String(current));}catch(e){}
+ }
+ document.getElementById('prevLesson').addEventListener('click',()=>showLesson(current-1));
+ document.getElementById('nextLesson').addEventListener('click',()=>{if(current<lessons.length-1){showLesson(current+1)}else{document.getElementById('quiz')?.scrollIntoView({behavior:'smooth'});}});
+ document.getElementById('showAllLessons').addEventListener('click',()=>{lessons.forEach(el=>{el.classList.remove('lesson-hidden','lesson-current')});document.getElementById('lessonModeLabel').textContent='All lessons visible';});
+ // Lesson index and top navigation open the selected lesson instead of jumping into a long page.
+ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',function(){
+  const id=this.getAttribute('href').slice(1);const index=ids.indexOf(id);
+  if(index>=0){showLesson(index,false);}
+ }));
+ // Add a practical response area to every lesson, with saved notes and feedback.
+ lessons.forEach((lesson,i)=>{
+  const box=document.createElement('div');box.className='lesson-practice';
+  box.innerHTML='<span class="pill">🎯 TRY IT YOURSELF</span><h3>Interactive practice: '+names[i]+'</h3><p>'+[
+   'Describe the edits you would make to improve an image while keeping the original safe.',
+   'Write the main message and three design choices you would use in an infographic.',
+   'Plan the sections and navigation for a student-friendly website.',
+   'Create a safe folder structure and explain how you would share files with the right people.',
+   'Choose a topic and outline how a visual, slide deck, or mind map would explain it.',
+   'Plan team roles, deadlines, and one respectful way to give feedback.'
+  ][i]+'</p><label for="practice-'+ids[i]+'">Your response / work notes</label><textarea id="practice-'+ids[i]+'" placeholder="Type your ideas here..."></textarea><div class="practice-actions"><button type="button" data-save-practice="'+ids[i]+'">Save my response</button><button type="button" class="secondary" data-clear-practice="'+ids[i]+'">Clear</button></div><p class="practice-feedback" id="feedback-'+ids[i]+'" aria-live="polite"></p><p class="save-note">Your response is saved in this browser on this device only; it is not submitted to your teacher.</p>';
+  const activity=lesson.querySelector('.activity');
+  if(activity)activity.insertAdjacentElement('afterend',box);else lesson.appendChild(box);
+  const field=box.querySelector('textarea');
+  try{field.value=localStorage.getItem('create-practice-'+ids[i])||'';}catch(e){}
+ });
+ document.querySelectorAll('[data-save-practice]').forEach(btn=>btn.addEventListener('click',()=>{
+  const id=btn.dataset.savePractice,field=document.getElementById('practice-'+id);
+  try{localStorage.setItem('create-practice-'+id,field.value);document.getElementById('feedback-'+id).textContent='Saved! Keep going—you can return and revise this response.';}
+  catch(e){document.getElementById('feedback-'+id).textContent='Your browser blocked local saving. Copy your response somewhere safe.';}
+ }));
+ document.querySelectorAll('[data-clear-practice]').forEach(btn=>btn.addEventListener('click',()=>{
+  const id=btn.dataset.clearPractice;document.getElementById('practice-'+id).value='';
+  try{localStorage.removeItem('create-practice-'+id);}catch(e){}
+  document.getElementById('feedback-'+id).textContent='Response cleared.';
+ }));
+ // Restore and persist lesson completion.
+ document.querySelectorAll('[data-complete]').forEach(btn=>{
+  const id=btn.dataset.complete;
+  try{if(localStorage.getItem('create-complete-'+id)==='yes'){btn.classList.add('done');btn.textContent='✓ Completed!';}}catch(e){}
+  btn.addEventListener('click',()=>{try{localStorage.setItem('create-complete-'+id,btn.classList.contains('done')?'yes':'no');}catch(e){}});
+ });
+ let saved=0;try{saved=Number(localStorage.getItem('create-current-lesson')||0);}catch(e){}
+ showLesson(saved,false);
+})();
 
 </script>
 </body></html>
