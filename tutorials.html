@@ -38,11 +38,16 @@ main{padding:22px 0 60px}.progressbox{position:sticky;top:0;z-index:15;backgroun
 </head>
 <body><div id="studentGate" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
  <div class="gate-card"><div class="kicker">PROJECT CREATE · STUDENT ACCESS</div><h2 id="gateTitle">Welcome, creator! ✨</h2><p>Enter your student details before opening the learning lab.</p>
- <form id="gateForm"><label for="studentName">Full name</label><input id="studentName" required maxlength="80" autocomplete="name" placeholder="Enter your name">
+ <form id="gateForm">
+ <label for="studentName">Full name</label><input id="studentName" required maxlength="80" autocomplete="name" placeholder="Enter your name">
  <label for="studentSection">Grade and section</label><input id="studentSection" required maxlength="60" placeholder="e.g., Grade 12 - STEM">
- <label for="studentCode">Student code (optional)</label><input id="studentCode" maxlength="40" placeholder="Use a school-approved code, not a password">
- <button class="btn gold" type="submit" style="width:100%;margin-top:8px">Enter learning lab →</button></form>
- <p class="gate-note">Prototype sign-in: this saves a profile on this device only. It is not secure authentication, and it does not send records to a teacher or school database. Do not enter passwords or sensitive personal information.</p>
+ <label for="studentEmail">Email address</label><input id="studentEmail" required type="email" maxlength="254" autocomplete="email" placeholder="Use an email you can access">
+ <label for="studentPassword">Password</label><input id="studentPassword" required type="password" minlength="8" autocomplete="current-password" placeholder="At least 8 characters">
+ <button class="btn gold" id="authSubmit" type="submit" style="width:100%;margin-top:8px">Sign in →</button>
+ <button class="btn soft" id="authMode" type="button" style="width:100%;margin-top:12px">New student? Create an account</button>
+ <p id="authMessage" role="status" aria-live="polite" class="gate-note">Use your own email. Email confirmation may be required.</p>
+ </form>
+ <p class="gate-note">After sign-in, your progress and workspace drafts can sync to your account. Never share your password. Student accounts cannot grant themselves teacher or admin access.</p>
  </div>
 </div>
 <section class="quest-launch wrap" id="questLaunch" style="display:none">
@@ -77,7 +82,7 @@ main{padding:22px 0 60px}.progressbox{position:sticky;top:0;z-index:15;backgroun
 <div class="lesson-footer"><span class="muted" id="lessonFootnote">Your progress and draft are saved locally in this browser.</span><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn soft" id="prevTopic">← Previous</button><button class="btn" id="nextTopic">Next mission →</button></div></div>
 </div></section>
 <section class="section-card"><div class="kicker">How the quest works</div><h2>Learn by making, not just reading.</h2><div class="topic-grid"><div class="info-card"><h3>📖 Learn</h3><p>Short explanations, clear steps, examples, and visual references.</p></div><div class="info-card"><h3>▶ Watch</h3><p>Find video walkthroughs for the current topic and follow along.</p></div><div class="info-card"><h3>🛠 Create</h3><p>Use the practice studio to plan, draft, save, and export your work.</p></div><div class="info-card"><h3>🏆 Level up</h3><p>Earn points by completing topic missions and checking your understanding.</p></div></div></section>
-<div class="footer">PROJECT CREATE · Learn it. Try it. Create something. <br><small>Progress and drafts are stored in this browser only; they do not automatically sync across devices.</small></div></main><div class="toast" id="toast" role="status"></div>
+<div class="footer">PROJECT CREATE · Learn it. Try it. Create something. <br><small>Sign in to sync your learning progress and workspace drafts with your account.</small></div></main><div class="toast" id="toast" role="status"></div>
 <script>
 const lessons={
 image:{emoji:"🖼️",kicker:"MISSION 01 · IMAGE LAB",title:"Basic Image Manipulation",intro:"Edit images with intention: improve clarity, guide attention, and keep the original message clear.",level:"Beginner → Intermediate",time:"20–30 minutes",heading:"What is image manipulation?",text:"Image manipulation is the process of changing a digital image to improve its appearance or communicate an idea. Common techniques include cropping, resizing, color correction, retouching, adding text, combining layers, and exporting to the right format. A good edit supports the message rather than distracting from it.",objectives:["Identify the canvas, tools, layers, and export controls in an image editor.","Crop, resize, and adjust an image without stretching it.","Combine text and graphics using layers, then export a suitable file."],steps:["Open a copy of your image in an editor such as GIMP, Photopea, or another available tool. Keep the original file unchanged.","Crop to focus on the subject. Check that important details are not cut off and that the composition feels balanced.","Resize proportionally. Keep the width-to-height ratio locked so the subject does not look stretched.","Adjust brightness, contrast, and color in small steps. Compare the result with the original and avoid over-editing.","Add text or graphics on separate layers. Use readable contrast, consistent alignment, and enough empty space.","Zoom in to check edges and spelling, then export a copy. Use PNG for crisp graphics/transparency and JPEG for many photographs."],tip:"Pro tip: non-destructive editing (working on copies or separate layers) makes it easier to revise your work without losing the original.",takeaway:"A strong edit has a purpose, keeps proportions correct, and uses layers so each element can be adjusted independently.",materials:"An image editor, a practice photo, and a clear purpose (poster, profile graphic, photo correction, or visual story).",task:"Create a simple event or awareness graphic. Plan the message, choose a focal image, crop it, add a short headline, and list the export format you would use. If an editor is available, make the design there and describe or attach the result according to your teacher’s instructions.",checklist:["I kept the image proportions correct.","My text is readable and has strong contrast.","I checked the final image before exporting."],quiz:{q:"Why should you preserve the image's aspect ratio when resizing?",options:["To keep the image's proportions natural","To make every image square","To remove the background automatically"],correct:0,feedback:"Correct! Preserving the aspect ratio prevents the image from appearing stretched or squashed."},search:"basic image manipulation GIMP Photopea crop resize layers tutorial",video:"LX-S1CX1HUI",image:"https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=1000&q=80",caption:"Look for demonstrations of cropping, layers, and export settings."},
@@ -166,6 +171,66 @@ document.getElementById('applyOverlay').addEventListener('click',()=>{drawCanvas
 document.getElementById('downloadDesign').addEventListener('click',()=>{drawCanvas();const a=document.createElement('a');a.href=canvas.toDataURL('image/png');a.download='project-create-design.png';a.click()});
 document.getElementById('clearDesign').addEventListener('click',()=>{sourceImage=null;document.getElementById('overlayText').value='';document.getElementById('imageUpload').value='';drawCanvas();document.getElementById('canvasStatus').textContent='Canvas cleared.'});
 drawCanvas();
+})();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(async function projectCreateCloud(){
+ const cfg=window.PROJECT_CREATE_SUPABASE,gate=document.getElementById('studentGate'),form=document.getElementById('gateForm');
+ const msg=document.getElementById('authMessage'),submit=document.getElementById('authSubmit'),mode=document.getElementById('authMode');
+ if(!cfg||!window.supabase){msg.textContent='Cloud sign-in could not load. Check your connection and refresh.';return;}
+ const db=window.supabase.createClient(cfg.url,cfg.anonKey);let isSignup=false,user=null,syncTimer;
+ const say=(s,bad=false)=>{msg.textContent=s;msg.style.color=bad?'#a1264c':''};
+ const showGate=()=>{gate.style.display='grid';document.querySelector('header').style.display='none';document.querySelector('main').style.display='none'};
+ const hideGate=()=>{gate.style.display='none';document.querySelector('header').style.display='';document.querySelector('main').style.display=''};
+ mode.addEventListener('click',()=>{isSignup=!isSignup;document.getElementById('studentName').required=isSignup;document.getElementById('studentSection').required=isSignup;document.getElementById('studentPassword').autocomplete=isSignup?'new-password':'current-password';submit.textContent=isSignup?'Create account →':'Sign in →';mode.textContent=isSignup?'Already registered? Sign in':'New student? Create an account';say(isSignup?'Create an account using an email you can access.':'Enter your registered email and password.')});
+ form.addEventListener('submit',async e=>{
+  e.preventDefault();e.stopImmediatePropagation();
+  const email=document.getElementById('studentEmail').value.trim().toLowerCase(),password=document.getElementById('studentPassword').value;
+  const name=document.getElementById('studentName').value.trim(),section=document.getElementById('studentSection').value.trim();
+  if(!email||!password||(isSignup&&(!name||!section)))return;
+  submit.disabled=mode.disabled=true;say(isSignup?'Creating your account…':'Signing in…');
+  try{
+   let res;
+   if(isSignup){res=await db.auth.signUp({email,password,options:{emailRedirectTo:location.origin+location.pathname,data:{full_name:name,grade_section:section}}});if(res.error)throw res.error;if(!res.data.session){say('Account created. Check your email for the confirmation link, then return and sign in.');return;}user=res.data.user;}
+   else{res=await db.auth.signInWithPassword({email,password});if(res.error)throw res.error;user=res.data.user;}
+   if(user)await enterUser(user);
+  }catch(err){say(err.message||'Could not sign in. Check your details and try again.',true)}
+  finally{submit.disabled=mode.disabled=false}
+ },true);
+ async function enterUser(authUser){
+  user=authUser;const meta=user.user_metadata||{};
+  const {data:prof,error:pe}=await db.from('profiles').select('full_name,grade_section,role').eq('id',user.id).maybeSingle();if(pe)throw pe;
+  const profile={name:prof?.full_name||meta.full_name||user.email,section:prof?.grade_section||meta.grade_section||'Student'};
+  studentStateKey='create-learning-state-v2:'+user.id;
+  const {data:remote,error:re}=await db.from('student_progress').select('learning_state').eq('user_id',user.id).maybeSingle();if(re)throw re;
+  if(remote?.learning_state){state=remote.learning_state;state.xp=Number(state.xp)||0;state.done=Array.isArray(state.done)?state.done:[];state.drafts=state.drafts||{};state.checks=state.checks||{};}
+  else{state=loadState();const {error}=await db.from('student_progress').upsert({user_id:user.id,learning_state:state,quest_progress:[]},{onConflict:'user_id'});if(error)throw error;}
+  const {data:drafts,error:de}=await db.from('workspace_drafts').select('topic_id,content').eq('user_id',user.id);if(de)throw de;(drafts||[]).forEach(d=>state.drafts[d.topic_id]=d.content);
+  try{localStorage.setItem(studentStateKey,JSON.stringify(state));localStorage.setItem('project-create-student-profile-v1',JSON.stringify({name:profile.name,section:profile.section,email:user.email}));}catch(e){}
+  hideGate();let tag=document.getElementById('studentWelcome');if(!tag){tag=document.createElement('div');tag.id='studentWelcome';tag.className='wrap';tag.style.cssText='padding:10px 0;color:#5c4bd4;font-weight:800;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap';document.querySelector('main').insertBefore(tag,document.querySelector('main').firstChild);}
+  tag.replaceChildren();const label=document.createElement('span');label.textContent='👋 Welcome, '+profile.name+' · '+profile.section;const out=document.createElement('button');out.type='button';out.className='btn soft';out.textContent='Sign out';out.onclick=async()=>{await db.auth.signOut();location.reload()};tag.append(label,out);
+  document.getElementById('questLaunch').style.display='block';renderStats();openLesson(current);
+ }
+ async function syncProgress(){
+  if(!user)return;
+  try{const {error}=await db.from('student_progress').upsert({user_id:user.id,learning_state:state,quest_progress:[]},{onConflict:'user_id'});if(error)throw error;}
+  catch(err){const status=document.getElementById('saveStatus');if(status)status.textContent='Saved locally; cloud sync failed. Check your connection.';console.error('Project CREATE sync:',err.message)}
+ }
+ const originalPersist=window.persist;
+ window.persist=function(){if(typeof originalPersist==='function')originalPersist();syncProgress()};
+ async function syncDraft(){
+  if(!user)return;
+  try{const {error}=await db.from('workspace_drafts').upsert({user_id:user.id,topic_id:current,title:(lessons[current]&&lessons[current].title)||current,content:document.getElementById('studentWork').value},{onConflict:'user_id,topic_id'});if(error)throw error;await syncProgress();document.getElementById('saveStatus').textContent='✓ Workspace draft synced to your account.'}
+  catch(err){document.getElementById('saveStatus').textContent='Saved on this device; cloud sync failed.';console.error('Project CREATE draft sync:',err.message)}
+ }
+ document.getElementById('studentWork').addEventListener('input',()=>{clearTimeout(syncTimer);syncTimer=setTimeout(syncDraft,700)});
+ document.getElementById('saveWork').addEventListener('click',syncDraft);
+ showGate();
+ try{const {data,error}=await db.auth.getSession();if(error)throw error;if(data.session?.user)await enterUser(data.session.user)}
+ catch(err){say('Could not check your session. Refresh and try again.',true)}
+ db.auth.onAuthStateChange((event,session)=>{if(event==='SIGNED_OUT'){user=null;showGate()}else if(session?.user&&!user)setTimeout(()=>enterUser(session.user).catch(err=>say(err.message,true)),0)});
 })();
 </script>
 </body></html>
