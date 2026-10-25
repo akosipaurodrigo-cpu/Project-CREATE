@@ -1,7 +1,7 @@
 // Project CREATE frontend configuration.
-// Replace these values with your own Supabase Project URL and publishable/anon key.
-// Safe to commit only the URL and publishable/anon key. NEVER put service_role/secret keys here.
+// Publishable keys are intended for browser apps; database access must still be protected by RLS.
+// NEVER put a Supabase secret/service_role key here.
 window.PROJECT_CREATE_SUPABASE = {
-  url: "",
-  anonKey: ""
+  url: "https://qyirzbqzjcxzcaguefwq.supabase.co",
+  anonKey: "sb_publishable_Te9nZssNrGE8UWupKX2wcA_A1CIj4R4"
 };
