@@ -16,11 +16,8 @@ create policy "Users can read own profile"
 on public.profiles for select to authenticated
 using (auth.uid() = id);
 
-drop policy if exists "Users can update own name" on public.profiles;
-create policy "Users can update own name"
-on public.profiles for update to authenticated
-using (auth.uid() = id)
-with check (auth.uid() = id and role = (select p.role from public.profiles p where p.id = auth.uid()));
+-- Profile role changes are intentionally not available to end users.
+-- Admins grant teacher access from the SQL Editor only.
 
 create or replace function public.handle_new_user()
 returns trigger
