@@ -16,18 +16,18 @@
 <div class="stats" aria-live="polite"><div class="stat"><strong id="xp">0 XP</strong><small>Quest points</small></div><div class="stat"><strong id="done">0 / 5</strong><small>Missions explored</small></div><div class="stat"><strong id="badge">🌱 Rookie</strong><small>Current rank</small></div></div>
 <section aria-labelledby="path-title"><div class="head"><div><h2 id="path-title">Your quest path</h2><p>Pick any stop to jump into a learning mission.</p></div></div><div class="path">
 <a class="node" href="tutorials.html#discover" data-mission="discover"><span class="bubble">✦</span><b>Discover</b><small>Start here</small></a>
-<a class="node" href="index.html#page-tutorials" data-mission="create"><span class="bubble">▤</span><b>Create</b><small>Documents & files</small></a>
-<a class="node" href="index.html#page-tutorials" data-mission="design"><span class="bubble">🎨</span><b>Design</b><small>Visual content</small></a>
+<a class="node" href="tutorials.html" data-mission="create"><span class="bubble">▤</span><b>Create</b><small>Documents & files</small></a>
+<a class="node" href="tutorials.html" data-mission="design"><span class="bubble">🎨</span><b>Design</b><small>Visual content</small></a>
 <a class="node" href="tutorials.html#workspace" data-mission="build"><span class="bubble">⌘</span><b>Build</b><small>Try the workspace</small></a>
-<a class="node" href="index.html#page-assessments" data-mission="master"><span class="bubble">🏆</span><b>Master</b><small>Final challenge</small></a>
+<a class="node" href="index.html" data-mission="master"><span class="bubble">🏆</span><b>Master</b><small>Final challenge</small></a>
 </div></section>
 <section id="missions"><div class="head"><div><h2>Pick your next mission</h2><p>Each mission opens a learning space or hands-on activity.</p></div></div><div class="mission-grid">
-<a class="mission" href="index.html#page-tutorials" data-mission="discover"><span class="icon">🧩</span><h3>Digital Detective</h3><p>Investigate online information and learn to spot trustworthy sources.</p><span class="bottom">Explore mission ↗</span></a>
-<a class="mission" href="index.html#page-tutorials" data-mission="create"><span class="icon">📝</span><h3>Document Creator</h3><p>Practice useful document, file, and productivity skills step by step.</p><span class="bottom">Start creating ↗</span></a>
-<a class="mission" href="index.html#page-tutorials" data-mission="design"><span class="icon">🎨</span><h3>Creative Thinker</h3><p>Explore visual messages, infographics, and design choices.</p><span class="bottom">Enter creative studio ↗</span></a>
+<a class="mission" href="tutorials.html" data-mission="discover"><span class="icon">🧩</span><h3>Digital Detective</h3><p>Investigate online information and learn to spot trustworthy sources.</p><span class="bottom">Explore mission ↗</span></a>
+<a class="mission" href="tutorials.html" data-mission="create"><span class="icon">📝</span><h3>Document Creator</h3><p>Practice useful document, file, and productivity skills step by step.</p><span class="bottom">Start creating ↗</span></a>
+<a class="mission" href="tutorials.html" data-mission="design"><span class="icon">🎨</span><h3>Creative Thinker</h3><p>Explore visual messages, infographics, and design choices.</p><span class="bottom">Enter creative studio ↗</span></a>
 <a class="mission" href="tutorials.html" data-mission="build"><span class="icon">💻</span><h3>Code Explorer</h3><p>Open the student practice workspace and try digital skills activities.</p><span class="bottom">Open workspace ↗</span></a>
 <a class="mission" href="tutorials.html" data-mission="arcade"><span class="icon">🌀</span><h3>Word Quest Arcade</h3><p>Unscramble ICT words, use clues, and earn points as you solve puzzles.</p><span class="bottom">Play now ↗</span></a>
-<a class="mission" href="index.html#page-assessments" data-mission="master"><span class="icon">🏆</span><h3>Skill Master</h3><p>Challenge yourself with a knowledge check and review what you learned.</p><span class="bottom">Take the challenge ↗</span></a>
+<a class="mission" href="index.html" data-mission="master"><span class="icon">🏆</span><h3>Skill Master</h3><p>Challenge yourself with a knowledge check and review what you learned.</p><span class="bottom">Take the challenge ↗</span></a>
 </div></section>
 <div class="notice"><b>Accessibility tip:</b> You can use Tab to move between missions and Enter to open one. The page works on phones, tablets, and computers. Progress is stored in this browser only.</div>
 <div class="footer">PROJECT CREATE · Learn it. Try it. Create something.</div>
@@ -37,7 +37,7 @@
  const key='project-create-quest-hub-v1';
  let data={done:[],xp:0};try{data=Object.assign(data,JSON.parse(localStorage.getItem(key)||'{}'))}catch(e){}
  const names={discover:'Digital Detective',create:'Document Creator',design:'Creative Thinker',build:'Code Explorer',master:'Skill Master',arcade:'Word Quest Arcade'};
- function render(){document.getElementById('xp').textContent=(Number(data.xp)||0)+' XP';document.getElementById('done').textContent+(data.done.length||0)+' / 5';document.getElementById('done').textContent=(data.done||[]).filter(x=>['discover','create','design','build','master'].includes(x)).length+' / 5';document.getElementById('badge').textContent=(data.xp>=100?'🏆 Skill Master':data.xp>=50?'✨ Skill Seeker':'🌱 Rookie');document.querySelectorAll('[data-mission]').forEach(el=>{if((data.done||[]).includes(el.dataset.mission))el.style.borderColor='#a6dfc7'})}
+ function render(){document.getElementById('xp').textContent=(Number(data.xp)||0)+' XP';document.getElementById('done').textContent=(data.done||[]).filter(x=>['discover','create','design','build','master'].includes(x)).length+' / 5';document.getElementById('badge').textContent=(data.xp>=100?'🏆 Skill Master':data.xp>=50?'✨ Skill Seeker':'🌱 Rookie');document.querySelectorAll('[data-mission]').forEach(el=>{if((data.done||[]).includes(el.dataset.mission))el.style.borderColor='#a6dfc7'})}
  document.querySelectorAll('[data-mission]').forEach(el=>el.addEventListener('click',()=>{const id=el.dataset.mission;if(!data.done.includes(id)){data.done.push(id);data.xp+=id==='arcade'?10:20;try{localStorage.setItem(key,JSON.stringify(data))}catch(e){}}}));
  render();
 })();
