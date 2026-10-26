@@ -180,7 +180,9 @@ drawCanvas();
 (async function projectCreateCloud(){
  const cfg=window.PROJECT_CREATE_SUPABASE,gate=document.getElementById('studentGate'),form=document.getElementById('gateForm');
  const msg=document.getElementById('authMessage'),submit=document.getElementById('authSubmit'),mode=document.getElementById('authMode');
- if(!cfg||!window.supabase){msg.textContent='Cloud sign-in could not load. Check your connection and refresh.';return;}
+ // Block native form navigation even if a CDN/config script fails to load.
+ form.addEventListener('submit',e=>{e.preventDefault();if(!cfg||!window.supabase){msg.textContent='Sign-in service did not load. Check your connection, then refresh this page.';msg.style.color='#a1264c';}},true);
+ if(!cfg||!window.supabase){msg.textContent='Sign-in service did not load. Check your connection, then refresh this page.';msg.style.color='#a1264c';return;}
  const db=window.supabase.createClient(cfg.url,cfg.anonKey);let isSignup=false,user=null,syncTimer;
  const say=(s,bad=false)=>{msg.textContent=s;msg.style.color=bad?'#a1264c':''};
  const showGate=()=>{gate.style.display='grid';document.querySelector('header').style.display='none';document.querySelector('main').style.display='none'};
